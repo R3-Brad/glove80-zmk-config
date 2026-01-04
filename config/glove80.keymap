@@ -41,9 +41,9 @@
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
 
-        hr_code: hr_code {
+        tap_hold_press: tap_hold_press {
             compatible = "zmk,behavior-hold-tap";
-            label = "HR_CODE";
+            label = "TAP_HOLD_PRESS";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -51,6 +51,18 @@
             flavor = "tap-preferred";
             require-prior-idle-ms = <400>;
             quick-tap-ms = <400>;
+        };
+
+        tap_hold_layer: tap_hold_layer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_HOLD_LAYER";
+            bindings = <&lt>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            require-prior-idle-ms = <400>;
+            flavor = "tap-preferred";
         };
     };
 
@@ -188,12 +200,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1      &kp F2    &kp F3                  &kp F4    &kp F5                                                                                              &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
-&kp ESCAPE  &kp N1    &kp N2                  &kp N3    &kp N4     &kp N5                                                                           &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB     &kp Q     &kp W                   &kp E     &kp R      &kp T                                                                            &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
-&kp EQUAL   &kp A     &hr_code PRINTSCREEN S  &kp D     &lt 3 F    &hr_code F12 G                                                                   &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
-&kp GRAVE   &kp Z     &kp X                   &kp C     &kp V      &kp B           &kp LSHFT  &kp LCTRL  &layer_td  &kp LGUI  &kp RCTRL  &kp RSHFT  &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
-&magic 2 0  &kp HOME  &kp END                 &kp LEFT  &kp RIGHT                  &kp BSPC   &kp DEL    &kp LALT   &kp RALT  &kp RET    &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
+&kp F1      &kp F2    &kp F3                         &kp F4    &kp F5                                                                                                               &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
+&kp ESCAPE  &kp N1    &kp N2                         &kp N3    &kp N4               &kp N5                                                                                  &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB     &kp Q     &kp W                          &kp E     &kp R                &kp T                                                                                   &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
+&kp EQUAL   &kp A     &tap_hold_press PRINTSCREEN S  &kp D     &tap_hold_layer 3 F  &tap_hold_press F12 G                                                                   &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&kp GRAVE   &kp Z     &kp X                          &kp C     &kp V                &kp B                  &kp LSHFT  &kp LCTRL  &layer_td  &kp LGUI  &kp RCTRL  &kp RSHFT  &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
+&magic 2 0  &kp HOME  &kp END                        &kp LEFT  &kp RIGHT                                   &kp BSPC   &kp DEL    &kp LALT   &kp RALT  &kp RET    &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
             >;
         };
 
@@ -224,7 +236,7 @@
 &trans  &trans  &trans  &trans          &trans                                                                                                                                                     &trans                &trans              &trans   &trans  &trans
 &trans  &trans  &trans  &trans          &trans           &trans                                                                                                                            &trans  &trans                &trans              &trans   &trans  &trans
 &trans  &trans  &trans  &equals_equals  &plus_equals     &minus_equals                                                                                                                     &trans  &move_line_up         &move_line_down     &trans   &trans  &trans
-&trans  &trans  &trans  &trans          &trans           &trans                                                                                                                            &trans  &previous_method      &next_method        &kp F12  &trans  &trans
+&trans  &trans  &trans  &trans          &to 0            &trans                                                                                                                            &trans  &previous_method      &next_method        &kp F12  &trans  &trans
 &trans  &trans  &trans  &less_equals    &greater_equals  &lamda         &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &trans  &move_statement_down  &move_statement_up  &trans   &trans  &trans
 &trans  &trans  &trans  &trans          &trans                          &trans                &trans          &trans            &trans             &trans           &trans                         &trans                &trans              &trans   &trans  &trans
             >;
