@@ -47,7 +47,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
 
@@ -57,7 +57,7 @@
             bindings = <&tog>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
 
@@ -67,7 +67,7 @@
             bindings = <&cut>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
 
@@ -77,7 +77,7 @@
             bindings = <&copy>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
 
@@ -87,7 +87,7 @@
             bindings = <&paste>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
         };
 
@@ -98,7 +98,7 @@
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <100>;
+            tapping-term-ms = <250>;
         };
     };
 
