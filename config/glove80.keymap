@@ -246,7 +246,7 @@
         or: or {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp PIPE &kp PIPE>;
+            bindings = <&kp RA(PIPE) &kp RA(PIPE)>;
             label = "OR";
         };
 
